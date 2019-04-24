@@ -1,17 +1,16 @@
 package nl.tudelft.jpacman.sprite;
 
-import static org.assertj.core.api.Assertions.assertThatThrownBy;
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 /**
  * Verifies the loading of sprites.
  *
- * @author Jeroen Roosen 
+ * @author Jeroen Roosen
  */
 @SuppressWarnings("magicnumber")
 public class SpriteTest {
@@ -25,8 +24,7 @@ public class SpriteTest {
      * The common fixture of this test class is
      * a 64 by 64 pixel white sprite.
      *
-     * @throws java.io.IOException
-     *      when the sprite could not be loaded.
+     * @throws java.io.IOException when the sprite could not be loaded.
      */
     @BeforeEach
     public void setUp() throws IOException {
@@ -48,19 +46,6 @@ public class SpriteTest {
     @Test
     public void spriteHeight() {
         assertThat(sprite.getHeight()).isEqualTo(SPRITE_SIZE);
-    }
-
-    /**
-     * Verifies that an IOException is thrown when the resource could not be
-     * loaded.
-     *
-     * @throws java.io.IOException
-     *             since the sprite cannot be loaded.
-     */
-    @Test
-    public void resourceMissing() throws IOException {
-        assertThatThrownBy(() -> store.loadSprite("/sprite/nonexistingresource.png"))
-            .isInstanceOf(IOException.class);
     }
 
     /**
