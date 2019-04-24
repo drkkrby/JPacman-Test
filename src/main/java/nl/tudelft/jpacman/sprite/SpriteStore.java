@@ -59,9 +59,6 @@ public class SpriteStore {
      */
     private Sprite loadSpriteFromResource(String resource) throws IOException {
         try (InputStream input = SpriteStore.class.getResourceAsStream(resource)) {
-            if (input == null) {
-                throw new IOException("Unable to load " + resource + ", resource does not exist.");
-            }
             BufferedImage image = ImageIO.read(input);
             return new ImageSprite(image);
         }

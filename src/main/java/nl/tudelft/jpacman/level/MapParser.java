@@ -243,9 +243,6 @@ public class MapParser {
                         justification = "try with resources always cleans up")
     public Level parseMap(String mapName) throws IOException {
         try (InputStream boardStream = MapParser.class.getResourceAsStream(mapName)) {
-            if (boardStream == null) {
-                throw new PacmanConfigurationException("Could not get resource for: " + mapName);
-            }
             return parseMap(boardStream);
         }
     }
